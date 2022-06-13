@@ -1,2 +1,2 @@
 # c-design-patterns
-Padrões de Projeto: Soluções reutilizáveis de software orientado a objetos
+Design Patterns: Elements of Reusable Object-Oriented Software
