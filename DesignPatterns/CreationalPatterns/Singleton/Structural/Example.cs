@@ -14,8 +14,6 @@
             {
                 Console.WriteLine("Objects are the same instance");
             }
-
-            Console.WriteLine();
         }
     }
 
@@ -25,9 +23,7 @@
     {
         private static Singleton? _instance;
 
-        private Singleton()
-        {
-        }
+        private Singleton() { }
 
         public static Singleton Instance() => _instance ??= new();
     }

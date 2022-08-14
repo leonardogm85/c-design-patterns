@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.CreationalPatterns.Prototype.RealWorld
+﻿namespace DesignPatterns.CreationalPatterns.Prototype.RealWorld01
 {
     // The Prototype design pattern specifies the kind of objects to create using a prototypical
     // instance, and create new objects by copying this prototype.
@@ -17,18 +17,14 @@
             manager["peace"] = new Color(128, 211, 128);
             manager["flame"] = new Color(211, 34, 20);
 
-            ColorPrototype color;
+            ColorPrototype angry = manager["angry"].Clone();
+            Console.WriteLine($"Cloning - {angry}");
 
-            color = manager["angry"].Clone();
-            Console.WriteLine($"Cloning - {color}");
+            ColorPrototype peace = manager["peace"].Clone();
+            Console.WriteLine($"Cloning - {peace}");
 
-            color = manager["peace"].Clone();
-            Console.WriteLine($"Cloning - {color}");
-
-            color = manager["flame"].Clone();
-            Console.WriteLine($"Cloning - {color}");
-
-            Console.WriteLine();
+            ColorPrototype flame = manager["flame"].Clone();
+            Console.WriteLine($"Cloning - {flame}");
         }
     }
 
@@ -50,9 +46,9 @@
             Blue = blue;
         }
 
-        public int Red { get; private set; }
-        public int Green { get; private set; }
-        public int Blue { get; private set; }
+        public int Red { get; }
+        public int Green { get; }
+        public int Blue { get; }
 
         public override ColorPrototype Clone() => (ColorPrototype)MemberwiseClone();
 

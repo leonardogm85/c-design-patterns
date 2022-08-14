@@ -7,18 +7,13 @@
     {
         public static void Run()
         {
-            Prototype prototype;
-            Prototype clone;
+            Prototype p1 = new ConcretePrototype1("1");
+            Prototype c1 = p1.Clone();
+            Console.WriteLine($"Cloned: {c1}");
 
-            prototype = new ConcretePrototype1("1");
-            clone = prototype.Clone();
-            Console.WriteLine($"Cloned: {clone}");
-
-            prototype = new ConcretePrototype2("2");
-            clone = prototype.Clone();
-            Console.WriteLine($"Cloned: {clone}");
-
-            Console.WriteLine();
+            Prototype p2 = new ConcretePrototype2("2");
+            Prototype c2 = p2.Clone();
+            Console.WriteLine($"Cloned: {c2}");
         }
     }
 
@@ -28,7 +23,7 @@
     {
         protected Prototype(string id) => Id = id;
 
-        public string Id { get; private set; }
+        public string Id { get; }
 
         public abstract Prototype Clone();
 
@@ -39,18 +34,14 @@
 
     class ConcretePrototype1 : Prototype
     {
-        public ConcretePrototype1(string id) : base(id)
-        {
-        }
+        public ConcretePrototype1(string id) : base(id) { }
 
         public override Prototype Clone() => (Prototype)MemberwiseClone();
     }
 
     class ConcretePrototype2 : Prototype
     {
-        public ConcretePrototype2(string id) : base(id)
-        {
-        }
+        public ConcretePrototype2(string id) : base(id) { }
 
         public override Prototype Clone() => (Prototype)MemberwiseClone();
     }

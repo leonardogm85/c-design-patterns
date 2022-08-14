@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.CreationalPatterns.FactoryMethod.RealWorld
+﻿namespace DesignPatterns.CreationalPatterns.FactoryMethod.RealWorld01
 {
     // The Factory Method design pattern defines an interface for creating an
     // object, but let subclasses decide which class to instantiate. This pattern lets a
@@ -37,43 +37,27 @@
 
     // ConcreteProduct (SkillsPage, EducationPage, ExperiencePage, IntroductionPage, ResultsPage, ConclusionPage, SummaryPage, BibliographyPage)
 
-    class SkillsPage : Page
-    {
-    }
+    class SkillsPage : Page { }
 
-    class EducationPage : Page
-    {
-    }
+    class EducationPage : Page { }
 
-    class ExperiencePage : Page
-    {
-    }
+    class ExperiencePage : Page { }
 
-    class IntroductionPage : Page
-    {
-    }
+    class IntroductionPage : Page { }
 
-    class ResultsPage : Page
-    {
-    }
+    class ResultsPage : Page { }
 
-    class ConclusionPage : Page
-    {
-    }
+    class ConclusionPage : Page { }
 
-    class SummaryPage : Page
-    {
-    }
+    class SummaryPage : Page { }
 
-    class BibliographyPage : Page
-    {
-    }
+    class BibliographyPage : Page { }
 
     // Creator (Document)
 
     abstract class Document
     {
-        public List<Page> Pages { get; private set; } = new();
+        public List<Page> Pages { get; } = new();
 
         public Document() => CreatePages();
 

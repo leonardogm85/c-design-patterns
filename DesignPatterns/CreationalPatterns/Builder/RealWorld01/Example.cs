@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.CreationalPatterns.Builder.RealWorld
+﻿namespace DesignPatterns.CreationalPatterns.Builder.RealWorld01
 {
     // The Builder design pattern separates the construction of a complex object from its
     // representation so that the same construction process can create different representations.
@@ -7,19 +7,21 @@
     {
         public static void Run()
         {
-            VehicleBuilder builder;
+            VehicleBuilder motorCycle = new MotorCycleBuilder();
+            Shop.Construct(motorCycle);
+            motorCycle.Vehicle.Show();
 
-            builder = new MotorCycleBuilder();
-            Shop.Construct(builder);
-            builder.Vehicle.Show();
+            Console.WriteLine();
 
-            builder = new CarBuilder();
-            Shop.Construct(builder);
-            builder.Vehicle.Show();
+            VehicleBuilder car = new CarBuilder();
+            Shop.Construct(car);
+            car.Vehicle.Show();
 
-            builder = new ScooterBuilder();
-            Shop.Construct(builder);
-            builder.Vehicle.Show();
+            Console.WriteLine();
+
+            VehicleBuilder scooter = new ScooterBuilder();
+            Shop.Construct(scooter);
+            scooter.Vehicle.Show();
         }
     }
 
@@ -27,7 +29,7 @@
 
     abstract class VehicleBuilder
     {
-        public Vehicle Vehicle { get; private set; }
+        public Vehicle Vehicle { get; }
 
         protected VehicleBuilder(string vehicleType) => Vehicle = new(vehicleType);
 
@@ -41,9 +43,7 @@
 
     class MotorCycleBuilder : VehicleBuilder
     {
-        public MotorCycleBuilder() : base("MotorCycle")
-        {
-        }
+        public MotorCycleBuilder() : base("MotorCycle") { }
 
         public override void BuildFrame() => Vehicle["frame"] = "MotorCycle Frame";
         public override void BuildEngine() => Vehicle["engine"] = "500 cc";
@@ -53,9 +53,7 @@
 
     class CarBuilder : VehicleBuilder
     {
-        public CarBuilder() : base("Car")
-        {
-        }
+        public CarBuilder() : base("Car") { }
 
         public override void BuildFrame() => Vehicle["frame"] = "Car Frame";
         public override void BuildEngine() => Vehicle["engine"] = "2500 cc";
@@ -65,9 +63,7 @@
 
     class ScooterBuilder : VehicleBuilder
     {
-        public ScooterBuilder() : base("Scooter")
-        {
-        }
+        public ScooterBuilder() : base("Scooter") { }
 
         public override void BuildFrame() => Vehicle["frame"] = "Scooter Frame";
         public override void BuildEngine() => Vehicle["engine"] = "50 cc";
@@ -112,8 +108,6 @@
             Console.WriteLine($"{"Engine",12}: {_parts["engine"]}");
             Console.WriteLine($"{"#Wheels",12}: {_parts["wheels"]}");
             Console.WriteLine($"{"#Doors",12}: {_parts["doors"]}");
-
-            Console.WriteLine();
         }
     }
 }

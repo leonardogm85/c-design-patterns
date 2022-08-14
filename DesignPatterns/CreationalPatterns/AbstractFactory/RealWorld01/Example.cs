@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.CreationalPatterns.AbstractFactory.RealWorld
+﻿namespace DesignPatterns.CreationalPatterns.AbstractFactory.RealWorld01
 {
     // The Abstract Factory design pattern provides an interface for creating families of related or
     // dependent objects without specifying their concrete classes.
@@ -7,15 +7,11 @@
     {
         public static void Run()
         {
-            AnimalWorld world;
+            AnimalWorld africa = new(new AfricaFactory());
+            africa.RunFoodChain();
 
-            world = new(new AfricaFactory());
-            world.RunFoodChain();
-
-            world = new(new AmericaFactory());
-            world.RunFoodChain();
-
-            Console.WriteLine();
+            AnimalWorld america = new(new AmericaFactory());
+            america.RunFoodChain();
         }
     }
 
@@ -57,21 +53,13 @@
 
     // Product (Wildebeest, Lion, Bison, Wolf)
 
-    class Wildebeest : Herbivore
-    {
-    }
+    class Wildebeest : Herbivore { }
 
-    class Bison : Herbivore
-    {
-    }
+    class Bison : Herbivore { }
 
-    class Lion : Carnivore
-    {
-    }
+    class Lion : Carnivore { }
 
-    class Wolf : Carnivore
-    {
-    }
+    class Wolf : Carnivore { }
 
     // Client (AnimalWorld)
 

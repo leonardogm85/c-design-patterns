@@ -7,15 +7,11 @@
     {
         public static void Run()
         {
-            Client client;
+            Client c1 = new(new ConcreteFactory1());
+            c1.Run();
 
-            client = new(new ConcreteFactory1());
-            client.Run();
-
-            client = new(new ConcreteFactory2());
-            client.Run();
-
-            Console.WriteLine();
+            Client c2 = new(new ConcreteFactory2());
+            c2.Run();
         }
     }
 
@@ -57,21 +53,13 @@
 
     // Product
 
-    class ProductA1 : AbstractProductA
-    {
-    }
+    class ProductA1 : AbstractProductA { }
 
-    class ProductA2 : AbstractProductA
-    {
-    }
+    class ProductA2 : AbstractProductA { }
 
-    class ProductB1 : AbstractProductB
-    {
-    }
+    class ProductB1 : AbstractProductB { }
 
-    class ProductB2 : AbstractProductB
-    {
-    }
+    class ProductB2 : AbstractProductB { }
 
     // Client
 

@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.CreationalPatterns.Singleton.RealWorld
+﻿namespace DesignPatterns.CreationalPatterns.Singleton.RealWorld01
 {
     // The Singleton design pattern ensures a class has only one instance and
     // provide a global point of access to it.
@@ -24,8 +24,6 @@
             {
                 Console.WriteLine($"Dispatch request to: {balancer.NextServer}");
             }
-
-            Console.WriteLine();
         }
     }
 
@@ -60,8 +58,8 @@
             Ip = ip;
         }
 
-        public string Name { get; private set; }
-        public string Ip { get; private set; }
+        public string Name { get; }
+        public string Ip { get; }
 
         public override string ToString() => $"{Name} [{Ip}]";
     }

@@ -7,15 +7,15 @@
     {
         public static void Run()
         {
-            Builder builder;
+            Builder b1 = new ConcreteBuilder1();
+            Director.Construct(b1);
+            b1.GetResult().Show();
 
-            builder = new ConcreteBuilder1();
-            Director.Construct(builder);
-            builder.GetResult().Show();
+            Console.WriteLine();
 
-            builder = new ConcreteBuilder2();
-            Director.Construct(builder);
-            builder.GetResult().Show();
+            Builder b2 = new ConcreteBuilder2();
+            Director.Construct(b2);
+            b2.GetResult().Show();
         }
     }
 
@@ -77,8 +77,6 @@
             {
                 Console.WriteLine($"  {part}");
             }
-
-            Console.WriteLine();
         }
     }
 }

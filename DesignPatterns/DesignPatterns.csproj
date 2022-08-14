@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="BehavioralPatterns\" />
+    <Compile Remove="BehavioralPatterns\**" />
+    <EmbeddedResource Remove="BehavioralPatterns\**" />
+    <None Remove="BehavioralPatterns\**" />
   </ItemGroup>
 
 </Project>

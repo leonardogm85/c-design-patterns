@@ -33,13 +33,9 @@
 
     // ConcreteProduct
 
-    class ConcreteProductA : Product
-    {
-    }
+    class ConcreteProductA : Product { }
 
-    class ConcreteProductB : Product
-    {
-    }
+    class ConcreteProductB : Product { }
 
     // Creator
     abstract class Creator
