@@ -35,7 +35,10 @@
             // CreationalPatterns.Singleton.RealWorld04.Example.Run();
 
             // StructuralPatterns.Adapter.Structural.Example.Run();
-            // StructuralPatterns.Adapter.RealWorld.Example.Run();
+            // StructuralPatterns.Adapter.RealWorld01.Example.Run();
+            // StructuralPatterns.Adapter.RealWorld02.Example.Run();
+            // StructuralPatterns.Adapter.RealWorld03.Example.Run();
+            // StructuralPatterns.Adapter.RealWorld04.Example.Run();
 
             // StructuralPatterns.Bridge.Structural.Example.Run();
             // StructuralPatterns.Bridge.RealWorld.Example.Run();

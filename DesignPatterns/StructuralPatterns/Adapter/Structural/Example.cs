@@ -8,15 +8,11 @@
     {
         public static void Run()
         {
-            Target target;
-
-            target = new Target();
+            Target target = new Target();
             target.Request();
 
-            target = new Adapter();
-            target.Request();
-
-            Console.WriteLine();
+            Target adapter = new Adapter();
+            adapter.Request();
         }
     }
 

@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.StructuralPatterns.Adapter.RealWorld
+﻿namespace DesignPatterns.StructuralPatterns.Adapter.RealWorld01
 {
     // The Adapter design pattern converts the interface of a class into another interface clients
     // expect. This design pattern lets classes work together that couldn‘t otherwise because of
@@ -8,19 +8,23 @@
     {
         public static void Run()
         {
-            Compound compound;
-
-            compound = new Compound();
+            Compound compound = new Compound();
             compound.Display();
 
-            compound = new RichCompound("Water");
-            compound.Display();
+            Console.WriteLine();
 
-            compound = new RichCompound("Benzene");
-            compound.Display();
+            Compound water = new RichCompound("Water");
+            water.Display();
 
-            compound = new RichCompound("Ethanol");
-            compound.Display();
+            Console.WriteLine();
+
+            Compound benzene = new RichCompound("Benzene");
+            benzene.Display();
+
+            Console.WriteLine();
+
+            Compound ethanol = new RichCompound("Ethanol");
+            ethanol.Display();
         }
     }
 
@@ -33,7 +37,7 @@
         public double? MolecularWeight { get; protected set; }
         public string? MolecularFormula { get; protected set; }
 
-        public virtual void Display() => Console.WriteLine($"{"Compound",10}: Unknown {Environment.NewLine}");
+        public virtual void Display() => Console.WriteLine($"{"Compound",10}: Unknown");
     }
 
     // Adapter (Compound)
@@ -42,13 +46,11 @@
     {
         private readonly string _chemical;
 
-        private ChemicalDatabank? _bank;
-
         public RichCompound(string chemical) => _chemical = chemical;
 
         public override void Display()
         {
-            _bank = new();
+            var _bank = new ChemicalDatabank();
 
             BoilingPoint = _bank.GetCriticalPoint(_chemical, "B");
             MeltingPoint = _bank.GetCriticalPoint(_chemical, "M");
@@ -60,7 +62,6 @@
             Console.WriteLine($"{"Weight",10}: {MolecularWeight}");
             Console.WriteLine($"{"Melting Pt",10}: {MeltingPoint}");
             Console.WriteLine($"{"Boiling Pt",10}: {BoilingPoint}");
-            Console.WriteLine();
         }
     }
 
