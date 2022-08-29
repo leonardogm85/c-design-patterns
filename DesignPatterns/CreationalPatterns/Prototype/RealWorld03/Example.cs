@@ -41,7 +41,7 @@
 
                 foreach (var comment in page.Comments)
                 {
-                    Console.WriteLine($"\t{comment}");
+                    Console.WriteLine($"  {comment}");
                 }
             }
         }

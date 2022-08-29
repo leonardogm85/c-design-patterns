@@ -15,8 +15,6 @@
 
             abstraction.SetImplementor(implementorB);
             abstraction.Operation();
-
-            Console.WriteLine();
         }
     }
 
@@ -37,9 +35,7 @@
 
     class RefinedAbstraction : Abstraction
     {
-        public RefinedAbstraction(Implementor implementor) : base(implementor)
-        {
-        }
+        public RefinedAbstraction(Implementor implementor) : base(implementor) { }
     }
 
     // Implementor

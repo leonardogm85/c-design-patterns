@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.StructuralPatterns.Bridge.RealWorld
+﻿namespace DesignPatterns.StructuralPatterns.Bridge.RealWorld01
 {
     // The Bridge design pattern decouples an abstraction from its implementation so that the
     // two can vary independently.
@@ -21,8 +21,6 @@
             Console.WriteLine();
 
             customers.ShowAll();
-
-            Console.WriteLine();
         }
     }
 
@@ -53,9 +51,7 @@
 
     class Customers : CustomersBase
     {
-        public Customers(DataObject dataObject) : base(dataObject)
-        {
-        }
+        public Customers(DataObject dataObject) : base(dataObject) { }
     }
 
     // Implementor (DataObject)
